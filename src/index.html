@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+    <head>
+        <script src="jslite.js"></script>
+    </head>
+    <body>
+        <div class="parent-master" style="height:2000px;">
+            <div class="parent">
+                element 1
+                <span class="button">Bouton 1</span>
+                <span class="button">Bouton 2</span>
+            </div>
+        </div>
+        
+        <script>
+//            $(".button").click(function(e){
+//                console.log(e);
+//            });
+//            
+            $(".button").click(function(){
+                console.log(this);
+            });
+        </script>
+    </body>
+</html>
