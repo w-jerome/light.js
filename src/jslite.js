@@ -267,6 +267,6 @@ $.prototype = {
     
     keyUp: function ( callback ){
         this.addListener("keyup", callback);
-    },
+    }
     
 };
