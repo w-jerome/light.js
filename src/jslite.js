@@ -10,8 +10,7 @@ function $(selector) {
 	var about = {
 		Version: 1,
 		Author: "Jérôme Wohlschlegel",
-		Created: "22 September 2015",
-		Updated: "22 September 2015"
+		Created: "22 September 2015"
 	};
     
 	if (selector) {
@@ -38,53 +37,53 @@ $.prototype = {
      * Class manipulation
      */
     
-	addClass: function (className) {
+	addClass: function ( className ) {
         for ( var i = 0; i < this.elements.length; i++ ) {
-            if (this.elements[i].classList) {
+            if ( this.elements[i].classList ) {
                 this.elements[i].classList.add(className);
             } else {
                 this.elements[i].className += ' ' + className;
             }
         }
-        return this;
+        return this.elements;
     },
     
-	removeClass: function (className) {
+	removeClass: function ( className ) {
         for ( var i = 0; i < this.elements.length; i++ ) {
             if (this.elements[i].classList) {
                 this.elements[i].classList.remove(className);
             } else {
-                this.elements[i].className = this.elements[i].className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+                this.elements[i].className = this.elements[i].className.replace( new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ' );
             }
         }
-        return this;
+        return this.elements;
     },
     
-	hasClass: function (className) {
+	hasClass: function ( className ) {
         for ( var i = 0; i < this.elements.length; i++ ) {
-            if (this.elements[i].classList) {
+            if ( this.elements[i].classList ) {
                 return this.elements[i].classList.contains(className);
             } else {
-                new RegExp('(^| )' + className + '( |$)', 'gi').test(this.elements[i].className);
+                new RegExp('(^| )' + className + '( |$)', 'gi').test( this.elements[i].className );
             }
         }
-        return this;
+        return this.elements;
     },
     
-	toggleClass : function (className) {
+	toggleClass : function ( className ) {
         if ( this.elements.length > 0 ) {
             var element = this.elements[0];
         } else {
             return false;
         }
-        if (element.classList) {
+        if ( element.classList ) {
             element.classList.toggle(className);
         } else {
             var classes = element.className.split(' ');
             var existingIndex = classes.indexOf(className);
             
             if (existingIndex >= 0) {
-                classes.splice(existingIndex, 1);
+                classes.splice( existingIndex, 1 );
             } else {
                 classes.push(className);
             }
@@ -97,7 +96,7 @@ $.prototype = {
      * Html manipulation
      */
     
-	attr: function (attr, value) {
+	attr: function ( attr, value ) {
         if ( this.elements.length > 0 ) {
             var element = this.elements[0];
         } else {
@@ -113,7 +112,7 @@ $.prototype = {
         return this;
     },
     
-	html: function (html) {
+	html: function ( html ) {
         if ( typeof html == "undefined" ) {
             if ( this.elements.length > 0 ) {
                 var element = this.elements[0];
@@ -136,12 +135,29 @@ $.prototype = {
         return this.elements;
     },
     
-	append: function (html) {
+	append: function ( html ) {
         if ( typeof html == "undefined" ) {
             return false;
         }
         for ( var i = 0; i < this.elements.length; i++ ) {
             this.elements[i].innerHTML += html;
+        }
+        return this.elements;
+    },
+    
+	css: function ( params, value ) {
+        for ( var i = 0; i < this.elements.length; i++ ) {
+            var element = this.elements[i];
+            
+            if ( typeof params == "object" ) {
+                
+            } else {
+                if ( typeof value == "string" ) {
+                    
+                } else {
+                    return getComputedStyle(element)[params];
+                }
+            }
         }
         return this.elements;
     },
@@ -159,24 +175,24 @@ $.prototype = {
         return element.parentNode;
     },
     
-	parents: function (parentSelector, element) {
-        if (typeof element != 'undefined') {
+	parents: function ( parentSelector, element ) {
+        if ( typeof element != 'undefined' ) {
             
-            if (element.matches(parentSelector)) {
+            if ( element.matches( parentSelector ) ) {
                 
                 return element;
                 
             } else if( element.matches("html") ) {
                 return false;
             } else {
-                return this.parents(parentSelector, element.parentNode);
+                return this.parents( parentSelector, element.parentNode );
             }
             
         } else {
             
             if ( this.elements.length > 0 ) {
-                var element = this.elements[0].matches(parentSelector);
-                return this.parents(parentSelector, this.elements[0].parentNode);
+                var element = this.elements[0].matches( parentSelector );
+                return this.parents( parentSelector, this.elements[0].parentNode );
             } else {
                 return false;
             }
@@ -184,7 +200,7 @@ $.prototype = {
         }
     },
     
-	find: function (childrenSelector) {
+	find: function ( childrenSelector ) {
         if ( this.elements.length > 0 ) {
             var element = this.elements[0];
             return this.elements[0].querySelectorAll(childrenSelector);
@@ -217,56 +233,67 @@ $.prototype = {
     
     addListener: function ( event, callback ){
         for ( var i = 0; i < this.elements.length; i++ ) {
-            this.elements[i].addEventListener(event, callback, false);
+            this.elements[i].addEventListener( event, callback, false );
+        }
+    },
+    
+    on: function ( event, callback ){
+        if ( event.indexOf(" ") > -1 ) {
+            var events = event.split(" ");
+            for ( var i = 0; i < events.length; i++ ) {
+                this.addListener( events[i], callback );
+            }
+        } else {
+            this.addListener( event, callback );
         }
     },
     
     click: function ( callback ){
-        this.addListener("click", callback);
+        this.addListener( "click", callback );
     },
     
     contextMenu: function ( callback ){
-        this.addListener("contextmenu", callback);
+        this.addListener( "contextmenu", callback );
     },
     
     dblClick: function ( callback ){
-        this.addListener("dblclick", callback);
+        this.addListener( "dblclick", callback );
     },
     
     mouseDown: function ( callback ){
-        this.addListener("mousedown", callback);
+        this.addListener( "mousedown", callback );
     },
     
     mouseUp: function ( callback ){
-        this.addListener("mouseup", callback);
+        this.addListener( "mouseup", callback );
     },
     
     mouseEnter: function ( callback ){
-        this.addListener("mouseenter", callback);
+        this.addListener( "mouseenter", callback );
     },
     
     mouseLeave: function ( callback ){
-        this.addListener("mouseleave", callback);
+        this.addListener( "mouseleave", callback );
     },
     
     mouseMove: function ( callback ){
-        this.addListener("mousemove", callback);
+        this.addListener( "mousemove", callback );
     },
     
     mouseOver: function ( callback ){
-        this.addListener("mouseover", callback);
+        this.addListener( "mouseover", callback );
     },
     
     mouseOut: function ( callback ){
-        this.addListener("mouseout", callback);
+        this.addListener( "mouseout", callback );
     },
     
     keyDown: function ( callback ){
-        this.addListener("keydown", callback);
+        this.addListener( "keydown", callback );
     },
     
     keyUp: function ( callback ){
-        this.addListener("keyup", callback);
+        this.addListener( "keyup", callback );
     }
     
 };
