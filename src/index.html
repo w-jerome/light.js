@@ -2,6 +2,14 @@
 <html>
     <head>
         <script src="jslite.js"></script>
+		<style>
+/*
+			.button {
+				background: #aaf;
+				margin-top: 20px;
+			}
+*/
+		</style>
     </head>
     <body>
         <div class="parent-master" style="height:2000px;">
@@ -12,8 +20,13 @@
         </div>
         
         <script>
-            console.log($(".button").css("width"));
-//            $(".button").css("background", "#faa");
+            console.log($(".button").css(
+				{
+					"margin-top": "60px",
+					background: "#faa",
+					display: "inline-block"
+				}
+			));
         </script>
     </body>
 </html>

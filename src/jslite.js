@@ -144,18 +144,26 @@ $.prototype = {
         }
         return this.elements;
     },
-    
+	
 	css: function ( params, value ) {
         for ( var i = 0; i < this.elements.length; i++ ) {
             var element = this.elements[i];
             
             if ( typeof params == "object" ) {
-                
+                var styles = "";
+				for(var style in params) {
+					styles = styles+style+":"+params[style]+";";
+				}
+				if ( styles != "" ) {
+					element.style.cssText = styles;
+				}
+				styles = "";
             } else {
                 if ( typeof value == "string" ) {
-                    
+					element.style.cssText = params+":"+value+";";
                 } else {
-                    return getComputedStyle(element)[params];
+					var style = window.getComputedStyle( element );
+    				return style.getPropertyValue( params );
                 }
             }
         }
