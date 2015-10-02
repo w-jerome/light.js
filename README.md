@@ -1,6 +1,6 @@
 # jsLite
 
-jsLite is very little framework with the basi jquery function
+jsLite is very little framework with the basic jquery functions
 
 # Functions
 
