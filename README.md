@@ -15,11 +15,11 @@ toggleClass('my-classe')
 ## Html manipulation
 
 ```
-attr('href') // attr('data-type') - attr('data-type', 'apple')
+attr('href') *attr('data-type') - attr('data-type', 'apple')*
 html()
 append('<div>my html</div>')
 remove()
-css('width') // css('width', '50px')
+css('width') *css('width', '50px')*
 ```
 
 ## Search elements
