@@ -7,45 +7,45 @@ jsLite is very little framework with the basic jquery functions
 ## Class manipulation
 
 ```addClass
-removeClass
-hasClass
-toggleClass
+removeClass('my-classe')
+hasClass('my-classe')
+toggleClass('my-classe')
 ```
 
 ## Html manipulation
 
 ```
-attr
-html
-append
-remove
-css
+attr('href') // attr('data-type') - attr('data-type', 'apple')
+html()
+append('<div>my html</div>')
+remove()
+css('width') // css('width', '50px')
 ```
 
 ## Search elements
 
 ```
-parent
-parents
-find
-next
-prev
+parent()
+parents('.highter-parent')
+find('.lower-child')
+next()
+prev()
 ```
 
 ## Event
 
 ```
-on
-click
-contextMenu
-dblClick
-mouseDown
-mouseUp
-mouseEnter
-mouseLeave
-mouseMove
-mouseOver
-mouseOut
-keyDown
-keyUp
+on(function () {})
+click(function () {})
+contextMenu(function () {})
+dblClick(function () {})
+mouseDown(function () {})
+mouseUp(function () {})
+mouseEnter(function () {})
+mouseLeave(function () {})
+mouseMove(function () {})
+mouseOver(function () {})
+mouseOut(function () {})
+keyDown(function () {})
+keyUp(function () {})
 ```
