@@ -18,6 +18,7 @@ $('.element').toggleClass('my-classe')
 $('.element').attr('href')
 	$('.element').attr('data-type')
 	$('.element').attr('data-type', 'apple')
+
 $('.element').html()
 $('.element').append('<div>my html</div>')
 $('.element').remove()
