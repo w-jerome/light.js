@@ -7,45 +7,48 @@ jsLite is very little framework with the basic jquery functions
 ## Class manipulation
 
 ```addClass
-removeClass('my-classe')
-hasClass('my-classe')
-toggleClass('my-classe')
+$('.element').removeClass('my-classe')
+$('.element').hasClass('my-classe')
+$('.element').toggleClass('my-classe')
 ```
 
 ## Html manipulation
 
 ```
-attr('href') *attr('data-type') - attr('data-type', 'apple')*
-html()
-append('<div>my html</div>')
-remove()
-css('width') *css('width', '50px')*
+$('.element').attr('href')
+	$('.element').attr('data-type')
+	$('.element').attr('data-type', 'apple')
+$('.element').html()
+$('.element').append('<div>my html</div>')
+$('.element').remove()
+$('.element').css('width')
+	$('.element')css('width', '50px')
 ```
 
 ## Search elements
 
 ```
-parent()
-parents('.highter-parent')
-find('.lower-child')
-next()
-prev()
+$('.element').parent()
+$('.element').parents('.highter-parent')
+$('.element').find('.lower-child')
+$('.element').next()
+$('.element').prev()
 ```
 
 ## Event
 
 ```
-on(function () {})
-click(function () {})
-contextMenu(function () {})
-dblClick(function () {})
-mouseDown(function () {})
-mouseUp(function () {})
-mouseEnter(function () {})
-mouseLeave(function () {})
-mouseMove(function () {})
-mouseOver(function () {})
-mouseOut(function () {})
-keyDown(function () {})
-keyUp(function () {})
+$('.element').on(function () {})
+$('.element').click(function () {})
+$('.element').contextMenu(function () {})
+$('.element').dblClick(function () {})
+$('.element').mouseDown(function () {})
+$('.element').mouseUp(function () {})
+$('.element').mouseEnter(function () {})
+$('.element').mouseLeave(function () {})
+$('.element').mouseMove(function () {})
+$('.element').mouseOver(function () {})
+$('.element').mouseOut(function () {})
+$('.element').keyDown(function () {})
+$('.element').keyUp(function () {})
 ```
