@@ -2,6 +2,7 @@
 <html>
     <head>
         <script src="jslite.js"></script>
+<!--        <script src="jquery.js"></script>-->
     </head>
     <body>
         <div class="parent-master" style="height:2000px;">
@@ -13,13 +14,9 @@
         </div>
         
         <script>
-//            $(".button").click(function(e){
-//                console.log(e);
-//            });
-//            
-            $(".button").click(function(){
-                console.log(this);
-            });
+			$.load('index.html', function (reponse) {
+				console.log(reponse);
+			});
         </script>
     </body>
 </html>
