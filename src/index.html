@@ -2,19 +2,38 @@
 <html>
     <head>
         <script src="jslite.js"></script>
-        <script src="jslite-ajax.js"></script>
+        <script src="plugins/jslite-ajax.js"></script>
+		<style>
+			*, *:before, *:after {
+				box-sizing: border-box;
+			}
+			
+			html, body {
+				font-family: 'open-sans', 'roboto', 'arial', sans-serif;
+			}
+			
+			button {
+				padding: 1em;
+			}
+			
+			button:not(:last-child) {
+				margin-right: 1em;
+			}
+			
+		</style>
     </head>
     <body>
-        <div class="parent-master" style="height:2000px;">
+		<h1>jsLite test</h1>
+        <div class="parent-master">
             <div class="parent">
-                element 1
-                <span class="button">Bouton 1</span>
-                <span class="button">Bouton 2</span>
+                element parent
+                <button type="button" class="button">Bouton 1</span>
+                <button type="button" class="button">Bouton 2</span>
             </div>
         </div>
         
         <script>
-			$('.button').addClass('GG');
+			$('button').addClass('GG');
         </script>
     </body>
 </html>

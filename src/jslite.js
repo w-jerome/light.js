@@ -12,21 +12,20 @@
 	};
 	
 	var jsLite = function (params) {
-		var selector,
-			i = 0;
+		var selector;
 		
 		if ( typeof params == 'undefined' ) {
 			selector = [];
 		} else if ( typeof params == 'object' ) {
 			selector = [params];
-		} else {
+		} else if ( typeof params == 'string' ) {
 			selector = document.querySelectorAll(params);
 		}
 		
 		this.length = selector.length;
 		this.version = '2.0';
 		
-		for (; i < this.length; i++) {
+		for (var i = 0; i < this.length; i++) {
 			this[i] = selector[i];
 		}
 		
@@ -314,5 +313,6 @@
 	
 	if(!window.$) {
 		window.$ = $;
+//		window.jsLite = jsLite;
 	}
 })();
