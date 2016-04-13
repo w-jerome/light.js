@@ -74,23 +74,24 @@
 		},
 		
 		toggleClass : function ( className ) {
-			if ( this.length > 0 ) {
-				var element = this[0];
-			} else {
+			if ( this.length == 0 ) {
 				return false;
 			}
-			if ( element.classList ) {
-				element.classList.toggle(className);
-			} else {
-				var classes = element.className.split(' ');
-				var existingIndex = classes.indexOf(className);
-				
-				if (existingIndex >= 0) {
-					classes.splice( existingIndex, 1 );
+			for ( var i = 0; i < this.length; i++ ) {
+				var element = this[i];
+				if ( element.classList ) {
+					element.classList.toggle(className);
 				} else {
-					classes.push(className);
+					var classes = element.className.split(' ');
+					var existingIndex = classes.indexOf(className);
+
+					if (existingIndex >= 0) {
+						classes.splice( existingIndex, 1 );
+					} else {
+						classes.push(className);
+					}
+					element.className = classes.join(' ');
 				}
-				element.className = classes.join(' ');
 			}
 			return this;
 		},
@@ -161,7 +162,7 @@
 						element.style.cssText = styles;
 					}
 					styles = "";
-				} else {
+				} else if ( typeof params == "string" ) {
 					if ( typeof value == "string" ) {
 						element.style.cssText = params+":"+value+";";
 					} else {
@@ -183,27 +184,19 @@
 			} else {
 				return false;
 			}
-			return element.parentNode;
+			return $(element.parentNode);
 		},
 		
-		parents: function ( parentSelector, element ) {
+		closest: function ( parentSelector, element ) {
 			
 			var parents  = {
 				selector: parentSelector,
 				curentElement: element,
 				checkIsHtmlElement: function( element ){
-					if ( typeof element != 'undefined' && typeof element.tagName != 'undefined' ) {
-						return true;
-					} else {
-						return false;
-					}
+					return ( typeof element != 'undefined' && typeof element.tagName != 'undefined' ) ? true : false;
 				},
 				checkIsHtmlTag: function( element ){
-					if ( typeof element != 'undefined' && element.matches( "html" ) ) {
-						return true;
-					} else {
-						return false;
-					}
+					return ( typeof element != 'undefined' && element.matches( "html" ) ) ? true : false;
 				}
 			};
 			
@@ -214,34 +207,38 @@
 			if ( parents.checkIsHtmlElement( element ) ) {
 				
 				if ( element.matches( parentSelector ) ) {
-					return element;
+					return $(element);
 				} else {
-					return this.parents( parentSelector, element.parentNode );
+					return this.closest( parentSelector, element.parentNode );
 				}
 				
 			} else {
 				var element = this[0];
 				if ( element.matches( parentSelector ) ) {
-					return element;
+					return $(element);
 				} else {
-					return this.parents( parentSelector, element.parentNode );
+					return this.closest( parentSelector, element.parentNode );
 				}
 			}
 		},
 		
 		find: function ( childrenSelector ) {
-			if ( this.length > 0 ) {
-				var element = this[0];
-				return this[0].querySelectorAll(childrenSelector);
-			} else {
-				return null;
+			var returnElement = $();
+			for ( var i = 0; i < this.length; i++ ) {
+				var element = this[i],
+					finds = this[0].querySelectorAll(childrenSelector);
+				for ( var s = 0; s < finds.length; s++ ) {
+					returnElement.length++;
+					returnElement[(returnElement.length)-1] = finds[s];
+				}
 			}
+			return returnElement;
 		},
 		
 		next: function () {
 			if ( this.length > 0 ) {
 				var element = this[0];
-				return this[0].nextElementSibling;
+				return $(this[0].nextElementSibling);
 			} else {
 				return null;
 			}
@@ -250,7 +247,7 @@
 		prev: function () {
 			if ( this.length > 0 ) {
 				var element = this[0];
-				return this[0].previousElementSibling;
+				return $(this[0].previousElementSibling);
 			} else {
 				return null;
 			}
