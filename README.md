@@ -1,6 +1,6 @@
 # jsLite
 
-jsLite is very little framework with the basic jquery functions
+jsLite is a very little framework with basic jquery functions
 
 # Functions
 
@@ -41,19 +41,33 @@ $('.element').prev()
 ## Event
 
 ```
-$('.element').on(function () {})
+$('.element').on('click', function () {})
+
+$('.element').load(function () {})
+$('.element').resize(function () {})
+$('.element').scroll(function () {})
+
+$('.element').change(function () {})
+$('.element').submit(function () {})
+$('.element').trigger(function () {})
+
 $('.element').click(function () {})
-$('.element').contextMenu(function () {})
+$('.element').contextMen(function () {})
 $('.element').dblClick(function () {})
-$('.element').mouseDown(function () {})
+$('.element').hover(function () {})
 $('.element').mouseUp(function () {})
+$('.element').mouseDown(function () {})
 $('.element').mouseEnter(function () {})
 $('.element').mouseLeave(function () {})
 $('.element').mouseMove(function () {})
 $('.element').mouseOver(function () {})
 $('.element').mouseOut(function () {})
+$('.element').keyPress(function () {})
 $('.element').keyDown(function () {})
 $('.element').keyUp(function () {})
+$('.element').focus(function () {})
+$('.element').focusIn(function () {})
+$('.element').focusOut(function () {})
 ```
 
 
