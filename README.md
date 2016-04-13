@@ -55,6 +55,7 @@ $('.element').click(function () {})
 $('.element').contextMen(function () {})
 $('.element').dblClick(function () {})
 $('.element').hover(function () {})
+
 $('.element').mouseUp(function () {})
 $('.element').mouseDown(function () {})
 $('.element').mouseEnter(function () {})
@@ -62,12 +63,16 @@ $('.element').mouseLeave(function () {})
 $('.element').mouseMove(function () {})
 $('.element').mouseOver(function () {})
 $('.element').mouseOut(function () {})
+
 $('.element').keyPress(function () {})
 $('.element').keyDown(function () {})
 $('.element').keyUp(function () {})
+
 $('.element').focus(function () {})
 $('.element').focusIn(function () {})
 $('.element').focusOut(function () {})
+
+$('.element').unBind('click focus', function () {})
 ```
 
 
