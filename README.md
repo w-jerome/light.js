@@ -41,7 +41,7 @@ $('.element').prev()
 ## Event
 
 ```
-$('.element').on('click', function () {})
+$('.element').on('click mouseleave', function () {})
 
 $('.element').load(function () {})
 $('.element').resize(function () {})
