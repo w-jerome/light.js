@@ -306,7 +306,7 @@
 		
 		extend: function ( fn ){
 			for ( var label in fn ) {
-				$.fn = jsLite.prototype[label] = fn[label];
+				$.fn[label] = jsLite.prototype[label] = fn[label];
 			}
 		},
 	};
