@@ -1,10 +1,10 @@
-# jsLite
+# light.js
 
-jsLite is a very little framework with basic jquery functions
+light.js is a very little framework **(5 ko)** with basic jquery functions
 
-# Functions
+## Functions
 
-## Class manipulation
+### Class manipulation
 
 ```addClass
 $('.element').addClass('my-classe')
@@ -13,7 +13,7 @@ $('.element').hasClass('my-classe')
 $('.element').toggleClass('my-classe')
 ```
 
-## Html manipulation
+### Html manipulation
 
 ```
 $('.element').attr('href')
@@ -31,7 +31,7 @@ $('.element').css('width')
 	$('.element')css({'width': '50px', 'width': '50px'})
 ```
 
-## Search elements
+### DOM manipulation
 
 ```
 $('.element').parent()
@@ -41,7 +41,7 @@ $('.element').next()
 $('.element').prev()
 ```
 
-## Event
+### Events
 
 ```
 $('.element').on('click mouseleave', function () {})
@@ -84,7 +84,7 @@ $('.element').unBind('click focus', function () {})
 Plugin script
 
 ```
-// plugins/jslite-opacity.js
+// plugins/light-opacity.js
 
 (function () {
 	$.fn.extend({

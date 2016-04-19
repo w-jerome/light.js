@@ -1,8 +1,8 @@
 <!doctype html>
 <html>
     <head>
-        <script src="jslite.js"></script>
-        <script src="plugins/jslite-ajax.js"></script>
+        <script src="light.js"></script>
+        <script src="plugins/light-ajax.js"></script>
 		<style>
 			*, *:before, *:after {
 				box-sizing: border-box;
@@ -10,10 +10,16 @@
 			
 			html, body {
 				font-family: 'open-sans', 'roboto', 'arial', sans-serif;
+				background: #548687;
+				color: #C5E99B;
 			}
 			
 			button {
 				padding: 1em;
+				background: #8FBC94;
+				border: 1px solid rgba(0, 0, 0, 0.3);
+				color: #56445D;
+				border-radius: 3px;
 			}
 			
 			button:not(:last-child) {
@@ -23,7 +29,7 @@
 		</style>
     </head>
     <body>
-		<h1>jsLite test</h1>
+		<h1>light.js</h1>
         <div class="parent-master">
             <div class="parent">
                 element parent

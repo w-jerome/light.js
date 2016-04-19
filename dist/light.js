@@ -8,10 +8,10 @@
 (function () {
 	
 	var $ = function (params) {
-		return new jsLite(params);
+		return new lightJs(params);
 	};
 	
-	var jsLite = function (params) {
+	var lightJs = function (params) {
 		var selector;
 		
 		if ( typeof params == 'undefined' ) {
@@ -32,8 +32,8 @@
 		return this;        
 	};
 	
-	// Extend the jsLite object.
-	$.fn = jsLite.prototype = {
+	// Extend the lightJs object.
+	$.fn = lightJs.prototype = {
 		
 		/*
 		 * Class manipulation
@@ -331,13 +331,13 @@
 		
 		extend: function ( fn ){
 			for ( var label in fn ) {
-				$.fn[label] = jsLite.prototype[label] = fn[label];
+				$.fn[label] = lightJs.prototype[label] = fn[label];
 			}
 		},
 	};
 	
 	if(!window.$) {
 		window.$ = $;
-//		window.jsLite = jsLite;
+//		window.lightJs = lightJs;
 	}
 })();
