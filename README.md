@@ -2,6 +2,12 @@
 
 light.js is a very little framework **(5 ko)** with basic jquery functions
 
+## Installation
+
+```
+<script src="https://raw.githubusercontent.com/w-jerome/light.js/master/dist/light.min.js"></script>
+```
+
 ## Functions
 
 ### Class manipulation
