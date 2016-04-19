@@ -131,6 +131,21 @@
 			return this;
 		},
 		
+		val: function ( val ) {
+			if ( typeof val == "undefined" ) {
+				if ( this.length > 0 ) {
+					return this[0].value;
+				} else {
+					return null;
+				}
+			} else {
+				for ( var i = 0; i < this.length; i++ ) {
+					this[i].value = val;
+				}
+			}
+			return this;
+		},
+		
 		remove: function () {
 			for ( var i = 0; i < this.length; i++ ) {
 				this[i].parentNode.removeChild(this[i]);

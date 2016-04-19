@@ -21,6 +21,9 @@ $('.element').attr('href')
 	$('.element').attr('data-type', 'apple')
 
 $('.element').html()
+$('.element').val()
+	$('.element').val('myValue')
+	
 $('.element').append('<div>my html</div>')
 $('.element').remove()
 $('.element').css('width')
