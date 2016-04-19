@@ -1,6 +1,6 @@
 # light.js
 
-light.js is a very little framework **(5 ko)** with basic jquery functions
+:seedling: light.js is a very little framework **(5 ko)** with basic jquery functions
 
 ## Installation
 
