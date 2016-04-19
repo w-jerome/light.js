@@ -1,67 +1,86 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>light.js by w-jerome</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">light.js</h1>
-      <h2 class="project-tagline">light.js is a very little framework (5 ko) with basic jquery functions</h2>
-      <a href="https://github.com/w-jerome/light.js" class="btn">View on GitHub</a>
-      <a href="https://github.com/w-jerome/light.js/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/w-jerome/light.js/tarball/master" class="btn">Download .tar.gz</a>
-    </section>
-
-    <section class="main-content">
-      <h2>
-<a id="functions" class="anchor" href="#functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Functions</h2>
-
-<h3>
-<a id="class-manipulation" class="anchor" href="#class-manipulation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Class manipulation</h3>
-
+<!doctype html>
+<html lang="fr-FR">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>light.js by w-jerome</title>
+		
+		<link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+		<section class="page-header">
+			<h1 class="project-name">light.js</h1>
+			<h2 class="project-tagline">light.js is a very little framework (5 ko) with basic jquery functions</h2>
+			<a href="https://github.com/w-jerome/light.js" class="btn">View on GitHub</a>
+			<a href="https://github.com/w-jerome/light.js/zipball/master" class="btn">Download .zip</a>
+			<a href="https://github.com/w-jerome/light.js/tarball/master" class="btn">Download .tar.gz</a>
+		</section>
+		
+		<section class="main-content">
+			<h2>
+				<a id="functions" class="anchor" href="#functions" aria-hidden="true">
+					<span aria-hidden="true" class="octicon octicon-link"></span>
+				</a>
+				Functions
+			</h2>
+			
+			<h3>
+				<a id="class-manipulation" class="anchor" href="#class-manipulation" aria-hidden="true">
+					<span aria-hidden="true" class="octicon octicon-link"></span>
+				</a>
+				Class manipulation
+			</h3>
+			
 <pre lang="addClass"><code>$('.element').addClass('my-classe')
 $('.element').removeClass('my-classe')
 $('.element').hasClass('my-classe')
 $('.element').toggleClass('my-classe')
 </code></pre>
-
-<h3>
-<a id="html-manipulation" class="anchor" href="#html-manipulation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Html manipulation</h3>
-
+			
+			<h3>
+				<a id="html-manipulation" class="anchor" href="#html-manipulation" aria-hidden="true">
+					<span aria-hidden="true" class="octicon octicon-link"></span>
+				</a>
+				Html manipulation
+			</h3>
+			
 <pre><code>$('.element').attr('href')
-    $('.element').attr('data-type')
-    $('.element').attr('data-type', 'apple')
+	$('.element').attr('data-type')
+	$('.element').attr('data-type', 'apple')
 
 $('.element').html()
 $('.element').val()
-    $('.element').val('myValue')
+	$('.element').val('myValue')
 
 $('.element').append('&lt;div&gt;my html&lt;/div&gt;')
 $('.element').remove()
 $('.element').css('width')
-    $('.element')css('width', '50px')
-    $('.element')css({'width': '50px', 'width': '50px'})
+	$('.element')css('width', '50px')
+	$('.element')css({'width': '50px', 'width': '50px'})
 </code></pre>
-
-<h3>
-<a id="dom-manipulation" class="anchor" href="#dom-manipulation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>DOM manipulation</h3>
-
+			
+			<h3>
+				<a id="dom-manipulation" class="anchor" href="#dom-manipulation" aria-hidden="true">
+					<span aria-hidden="true" class="octicon octicon-link"></span>
+				</a>
+				DOM manipulation
+			</h3>
+			
 <pre><code>$('.element').parent()
 $('.element').closest('.highter-parent')
 $('.element').find('.lower-child')
 $('.element').next()
 $('.element').prev()
 </code></pre>
-
-<h3>
-<a id="events" class="anchor" href="#events" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Events</h3>
-
+			
+			<h3>
+				<a id="events" class="anchor" href="#events" aria-hidden="true">
+					<span aria-hidden="true" class="octicon octicon-link"></span>
+				</a>
+				Events
+			</h3>
+			
 <pre><code>$('.element').on('click mouseleave', function () {})
 
 $('.element').load(function () {})
@@ -95,49 +114,56 @@ $('.element').focusOut(function () {})
 
 $('.element').unBind('click focus', function () {})
 </code></pre>
-
-<h2>
-<a id="create-plugin" class="anchor" href="#create-plugin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create plugin</h2>
-
-<p>Plugin script</p>
-
+			
+			<h2>
+				<a id="create-plugin" class="anchor" href="#create-plugin" aria-hidden="true">
+					<span aria-hidden="true" class="octicon octicon-link"></span>
+				</a>
+				Create plugin
+			</h2>
+			
+			<p>Plugin script</p>
+			
 <pre><code>// plugins/light-opacity.js
 
 (function () {
-    $.fn.extend({
+	$.fn.extend({
 
-        /*
-         * Opacity
-         */
-        opacity: function ( params ){
+		/*
+		* Opacity
+		*/
+		opacity: function ( params ){
 
-            if ( typeof params != 'string' &amp;&amp; typeof params != 'number' ) {
-                return false;
-            }
-            for ( var i = 0; i &lt; this.length; i++ ) {
-                var element = this[i];
-                element.style.opacity = params;
-            }
-        },
-    });
+			if ( typeof params != 'string' &amp;&amp; typeof params != 'number' ) {
+				return false;
+			}
+			for ( var i = 0; i &lt; this.length; i++ ) {
+				var element = this[i];
+				element.style.opacity = params;
+			}
+		},
+	});
 })();
 </code></pre>
-
-<p>Use</p>
-
+			
+			<p>Use</p>
+			
 <pre><code>&lt;script&gt;
-    $('button').opacity(0);
+	$('button').opacity(0);
 &lt;/script&gt;
 </code></pre>
-
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/w-jerome/light.js">light.js</a> is maintained by <a href="https://github.com/w-jerome">w-jerome</a>.</span>
-
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-      </footer>
-
-    </section>
-
-  
-  </body>
+			
+			<footer class="site-footer">
+				<span class="site-footer-owner">
+					<a href="https://github.com/w-jerome/light.js">light.js</a> is maintained by <a href="https://github.com/w-jerome">w-jerome</a>.
+				</span>
+				
+				<span class="site-footer-credits">
+					This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+				</span>
+			</footer>
+			
+		</section>
+		
+	</body>
 </html>

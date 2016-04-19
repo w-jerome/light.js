@@ -1,0 +1,23 @@
+{
+  "name": "light.js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.8.2",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-sass": "^2.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/w-jerome/light.js.git"
+  },
+  "author": "w-jerome",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/w-jerome/light.js/issues"
+  },
+  "homepage": "https://github.com/w-jerome/light.js#readme"
+}
