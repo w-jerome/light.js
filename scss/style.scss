@@ -133,6 +133,10 @@ a {
 	padding: 0.1em 2em;
 }
 
+.article-sub-function {
+	width: 100%;
+}
+
 pre {
 	display: block;
 	padding: 1em;
@@ -200,6 +204,12 @@ pre {
 
 @media (min-width: 1280px) {
 	
+	.clear {
+		content: "";
+		display: table;
+		clear: both;
+	}
+	
 	.project-logo {
 		max-width: 100px;
 		max-height: 100px;
@@ -211,6 +221,50 @@ pre {
 	
 	.project-description {
 		max-width: 365px;
+	}
+	
+	.main-content-inner {
+		width: 96%;
+	}
+	
+	.section-title {
+		margin-top: 4em;
+	}
+	
+	/*
+	 * Article
+	 */
+	
+	.article {
+		min-height: 100px;
+		margin-top: 15em;
+		margin-bottom: 15em;
+		padding: 1em;
+		background: #548687;
+		
+		&:nth-child(7) {
+			margin-bottom: 5em;
+		}
+		
+		&:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+		.article-sub-function {
+			
+			&:last-child {
+				margin-top: 7em;
+			}
+		}
+	}
+	
+	pre {
+		float: right;
+		width: 85%;
+		margin-top: -8em;
+		margin-right: -4em;
 	}
 }
 

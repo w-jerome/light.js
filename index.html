@@ -6,7 +6,7 @@
 		<title>light.js - a very little framework (5 ko) with basic jquery functions by w-jerome</title>
 		
 		<link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+<!--		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>-->
 		
 		<script>
 			var $html = document.querySelector('html');
@@ -44,32 +44,36 @@
 		
 		<section class="main-content">
 			<div class="main-content-inner">
-			<h2>
+			
+			<h2 class="section-title">
 				<a id="functions" class="anchor" href="#functions" aria-hidden="true">
 					<span aria-hidden="true" class="octicon octicon-link"></span>
 				</a>
 				Functions
 			</h2>
 			
-			<h3>
-				<a id="class-manipulation" class="anchor" href="#class-manipulation" aria-hidden="true">
-					<span aria-hidden="true" class="octicon octicon-link"></span>
-				</a>
-				Class manipulation
-			</h3>
-			
+			<article class="article">
+				<h3 class="article-title">
+					<a id="class-manipulation" class="anchor" href="#class-manipulation" aria-hidden="true">
+						<span aria-hidden="true" class="octicon octicon-link"></span>
+					</a>
+					Class manipulation
+				</h3>
+
 <pre lang="addClass"><code>$('.element').addClass('my-classe')
 $('.element').removeClass('my-classe')
 $('.element').hasClass('my-classe')
 $('.element').toggleClass('my-classe')
 </code></pre>
+			</article>
 			
-			<h3>
-				<a id="html-manipulation" class="anchor" href="#html-manipulation" aria-hidden="true">
-					<span aria-hidden="true" class="octicon octicon-link"></span>
-				</a>
-				Html manipulation
-			</h3>
+			<article class="article">
+				<h3 class="article-title">
+					<a id="html-manipulation" class="anchor" href="#html-manipulation" aria-hidden="true">
+						<span aria-hidden="true" class="octicon octicon-link"></span>
+					</a>
+					Html manipulation
+				</h3>
 			
 <pre><code>$('.element').attr('href')
 	$('.element').attr('data-type')
@@ -85,13 +89,15 @@ $('.element').css('width')
 	$('.element')css('width', '50px')
 	$('.element')css({'width': '50px', 'width': '50px'})
 </code></pre>
+			</article>
 			
-			<h3>
-				<a id="dom-manipulation" class="anchor" href="#dom-manipulation" aria-hidden="true">
-					<span aria-hidden="true" class="octicon octicon-link"></span>
-				</a>
-				DOM manipulation
-			</h3>
+			<article class="article">
+				<h3 class="article-title">
+					<a id="dom-manipulation" class="anchor" href="#dom-manipulation" aria-hidden="true">
+						<span aria-hidden="true" class="octicon octicon-link"></span>
+					</a>
+					DOM manipulation
+				</h3>
 			
 <pre><code>$('.element').parent()
 $('.element').closest('.highter-parent')
@@ -99,13 +105,15 @@ $('.element').find('.lower-child')
 $('.element').next()
 $('.element').prev()
 </code></pre>
-			
-			<h3>
-				<a id="events" class="anchor" href="#events" aria-hidden="true">
-					<span aria-hidden="true" class="octicon octicon-link"></span>
-				</a>
-				Events
-			</h3>
+			</article>
+				
+			<article class="article">
+				<h3 class="article-title">
+					<a id="events" class="anchor" href="#events" aria-hidden="true">
+						<span aria-hidden="true" class="octicon octicon-link"></span>
+					</a>
+					Events
+				</h3>
 			
 <pre><code>$('.element').on('click mouseleave', function () {})
 
@@ -140,16 +148,20 @@ $('.element').focusOut(function () {})
 
 $('.element').unBind('click focus', function () {})
 </code></pre>
+			</article>
 			
-			<h2>
+			<h2 class="section-title">
 				<a id="create-plugin" class="anchor" href="#create-plugin" aria-hidden="true">
 					<span aria-hidden="true" class="octicon octicon-link"></span>
 				</a>
 				Create plugin
 			</h2>
-			
-			<p>Plugin script</p>
-			
+				
+			<article class="article">
+				
+				<div class="article-sub-function || clear">
+					<p>Plugin script</p>
+				
 <pre><code>// plugins/light-opacity.js
 
 (function () {
@@ -171,13 +183,16 @@ $('.element').unBind('click focus', function () {})
 	});
 })();
 </code></pre>
-			
-			<p>Use</p>
+				</div>
+				<div class="article-sub-function || clear">
+					<p>Use</p>
 			
 <pre><code>&lt;script&gt;
 	$('button').opacity(0);
 &lt;/script&gt;
 </code></pre>
+				</div>
+			</article>
 			
 			<footer class="site-footer">
 				<span class="site-footer-owner">
