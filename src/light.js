@@ -5,7 +5,7 @@
 *
 ======================================================*/
 
-//http://overapi.com/jquery
+// ref : http://overapi.com/jquery
 
 (function () {
 	
@@ -26,6 +26,7 @@
 		
 		this.length = selector.length;
 		this.version = '2.0';
+		this.selector = params;
 		
 		for (var i = 0; i < this.length; i++) {
 			this[i] = selector[i];
@@ -36,12 +37,6 @@
 	
 	// Extend the lightJs object.
 	$.fn = lightJs.prototype = {
-		
-		/*
-		 * Selectors
-		 */
-		
-		
       
 		/*
 		 * Attributes / CSS
@@ -213,12 +208,20 @@
 		// Offset
 		
 		offset: function () {
-			
+			if ( typeof this[0] != 'undefined' ) {
+				var rect = this[0].getBoundingClientRect();
+				return {
+					top: rect.top + document.body.scrollTop,
+					left: rect.left + document.body.scrollLeft
+				};
+			}
 			return this;
 		},
 		
 		offsetParent: function () {
-			
+			//if ( typeof this[0] != 'undefined' ) {
+			//	return this[0].offsetParent || this[0];
+			//}
 			return this;
 		},
 		
@@ -261,24 +264,26 @@
 		
 		// Copying
 		
-		clone: function ( html ) {
-			
-			return this;
+		clone: function ( ) {
+			if ( typeof this[0] == "object" ) {
+				return this[0].cloneNode(true);
+			}
+			return {};
 		},
 		
 		// DOM Insertion, Around
 		
-		wrap: function ( html ) {
+		wrap: function () {
 			
 			return this;
 		},
 		
-		wrapAll: function ( html ) {
+		wrapAll: function () {
 			
 			return this;
 		},
 		
-		wrapInner: function ( html ) {
+		wrapInner: function () {
 			
 			return this;
 		},
@@ -316,52 +321,64 @@
 			return this;
 		},
 		
-		prepend: function ( html ) {
+		prepend: function () {
 			
 			return this;
 		},
 		
-		prependTo: function ( html ) {
+		prependTo: function () {
 			
 			return this;
 		},
 		
-		text: function ( html ) {
-			
+		text: function () {
+			if ( typeof this[0] != 'undefined' ) {
+				this[0].textContent;
+			}
 			return this;
 		},
 		
 		// DOM Insertion, Outside
 		
 		after: function ( html ) {
-			
+			if ( typeof html == 'string' ) {
+				for ( var i = 0; i < this.length; i++ ) {
+					this[i].insertAdjacentHTML('afterend', html);
+				}
+			}
 			return this;
 		},
 		
 		before: function ( html ) {
+			if ( typeof html == 'string' ) {
+				for ( var i = 0; i < this.length; i++ ) {
+					this[i].insertAdjacentHTML('beforebegin', html);
+				}
+			}
+			return this;
+		},
+		
+		insertAfter: function () {
 			
 			return this;
 		},
 		
-		insertAfter: function ( html ) {
-			
-			return this;
-		},
-		
-		insertBefore: function ( html ) {
+		insertBefore: function () {
 			
 			return this;
 		},
 		
 		// DOM Removal
 		
-		detach: function ( html ) {
+		detach: function () {
 			
 			return this;
 		},
 		
 		empty: function ( html ) {
-			
+			for ( var i = 0; i < this.length; i++ ) {
+				this[i].innerHTML = '';
+			}
 			return this;
 		},
 		
@@ -372,19 +389,19 @@
 			return this;
 		},
 		
-		unWrap: function ( html ) {
+		unWrap: function () {
 			
 			return this;
 		},
 		
 		// DOM Replacement
 		
-		replaceAll: function ( html ) {
+		replaceAll: function () {
 			
 			return this;
 		},
 		
-		replaceWidth: function ( html ) {
+		replaceWidth: function () {
 			
 			return this;
 		},
@@ -401,8 +418,10 @@
 			return this;
 		},
 		
-		filter: function () {
-			
+		filter: function ( filterFn ) {
+			for ( var i = 0; i < this.length; i++ ) {
+				Array.prototype.filter.call( document.querySelectorAll(this.selector), filterFn );
+			}
 			return this;
 		},
 		
@@ -416,8 +435,21 @@
 			return this;
 		},
 		
-		is: function () {
-			
+		is: function ( params ) {
+//			if ( typeof this[0] != 'undefined' ) {
+//				var el = this[0];
+//				if ( typeof params == 'object' ) {
+//					return el === params;
+//				} else if ( typeof params == 'string' ) {
+//					console.log(el);
+//					console.log(params);
+//					var matches = function( el, params ) {
+//						return (el.matches || el.matchesSelector || el.msMatchesSelector || el.mozMatchesSelector || el.webkitMatchesSelector || el.oMatchesSelector).call(el, params);
+//					};
+//
+//					matches(el, params);
+//				}
+//			}
 			return this;
 		},
 		
@@ -466,8 +498,10 @@
 		// Tree Traversal
 		
 		children: function () {
-			
-			return this;
+			if ( typeof this[0] == "object" ) {
+				 return this[0].children;
+			}
+			return [];
 		},
 		
 		closest: function ( parentSelector, element ) {
