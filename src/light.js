@@ -5,6 +5,8 @@
 *
 ======================================================*/
 
+//http://overapi.com/jquery
+
 (function () {
 	
 	var $ = function (params) {
@@ -36,8 +38,64 @@
 	$.fn = lightJs.prototype = {
 		
 		/*
-		 * Class manipulation
+		 * Selectors
 		 */
+		
+		
+      
+		/*
+		 * Attributes / CSS
+		 */
+		
+		//Attributes
+		
+		attr: function ( attr, value ) {
+			if ( this.length > 0 ) {
+				var element = this[0];
+			} else {
+				return this;
+			}
+			if ( typeof value == 'undefined' ) {
+				return element.getAttribute(attr);
+			} else {
+				for ( var i = 0; i < this.length; i++ ) {
+					this[i].setAttribute(attr, value);
+				}
+			}
+			return this;
+		},
+		
+		prop: function ( attr ) {
+			
+			return this;
+		},
+		
+		removeAttr: function ( attr ) {
+			
+			return this;
+		},
+		
+		removeProp: function ( attr ) {
+			
+			return this;
+		},
+		
+		val: function ( val ) {
+			if ( typeof val == "undefined" ) {
+				if ( this.length > 0 ) {
+					return this[0].value;
+				} else {
+					return null;
+				}
+			} else {
+				for ( var i = 0; i < this.length; i++ ) {
+					this[i].value = val;
+				}
+			}
+			return this;
+		},
+		
+		// CSS
 		
 		addClass: function ( className ) {
 			for ( var i = 0; i < this.length; i++ ) {
@@ -95,74 +153,6 @@
 			return this;
 		},
 		
-		/*
-		 * Html manipulation
-		 */
-		
-		attr: function ( attr, value ) {
-			if ( this.length > 0 ) {
-				var element = this[0];
-			} else {
-				return this;
-			}
-			if ( typeof value == 'undefined' ) {
-				return element.getAttribute(attr);
-			} else {
-				for ( var i = 0; i < this.length; i++ ) {
-					this[i].setAttribute(attr, value);
-				}
-			}
-			return this;
-		},
-		
-		html: function ( html ) {
-			if ( typeof html == "undefined" ) {
-				if ( this.length > 0 ) {
-					var element = this[0];
-					return element.innerHTML;
-				} else {
-					return null;
-				}
-			} else {
-				for ( var i = 0; i < this.length; i++ ) {
-					this[i].innerHTML = html;
-				}
-			}
-			return this;
-		},
-		
-		val: function ( val ) {
-			if ( typeof val == "undefined" ) {
-				if ( this.length > 0 ) {
-					return this[0].value;
-				} else {
-					return null;
-				}
-			} else {
-				for ( var i = 0; i < this.length; i++ ) {
-					this[i].value = val;
-				}
-			}
-			return this;
-		},
-		
-		remove: function () {
-			for ( var i = 0; i < this.length; i++ ) {
-				this[i].parentNode.removeChild(this[i]);
-			}
-			return this;
-		},
-		
-		append: function ( html ) {
-			if ( typeof html == "undefined" ) {
-				return false;
-			}
-			for ( var i = 0; i < this.length; i++ ) {
-				this[i].innerHTML += html;
-			}
-			return this;
-		},
-		
 		css: function ( params, value ) {
 			for ( var i = 0; i < this.length; i++ ) {
 				var element = this[i];
@@ -187,6 +177,167 @@
 			}
 			return this;
 		},
+		
+		// Dimensions
+		
+		height: function () {
+			
+			return this;
+		},
+		
+		width: function () {
+			
+			return this;
+		},
+		
+		innerHeight: function () {
+			
+			return this;
+		},
+		
+		innerWidth: function () {
+			
+			return this;
+		},
+		
+		outerHeight: function () {
+			
+			return this;
+		},
+		
+		outerWidth: function () {
+			
+			return this;
+		},
+		
+		// Offset
+		
+		offset: function () {
+			
+			return this;
+		},
+		
+		offsetParent: function () {
+			
+			return this;
+		},
+		
+		position: function () {
+			
+			return this;
+		},
+		
+		scrollLeft: function () {
+			
+			return this;
+		},
+		
+		scrollTop: function () {
+			
+			return this;
+		},
+		
+		// Data
+		
+		data: function () {
+			
+			return this;
+		},
+		
+		hasData: function () {
+			
+			return this;
+		},
+		
+		removeData: function () {
+			
+			return this;
+		},
+		
+		
+		/*
+		 * Manipulation
+		 */
+		
+		// Copying
+		
+		clone: function ( html ) {
+			
+			return this;
+		},
+		
+		// DOM Insertion, Around
+		
+		wrap: function ( html ) {
+			
+			return this;
+		},
+		
+		wrapAll: function ( html ) {
+			
+			return this;
+		},
+		
+		wrapInner: function ( html ) {
+			
+			return this;
+		},
+		
+		// DOM Insertion, Inside
+		
+		append: function ( html ) {
+			if ( typeof html == "undefined" ) {
+				return false;
+			}
+			for ( var i = 0; i < this.length; i++ ) {
+				this[i].innerHTML += html;
+			}
+			return this;
+		},
+		
+		appendTo: function ( html ) {
+			
+			return this;
+		},
+		
+		html: function ( html ) {
+			if ( typeof html == "undefined" ) {
+				if ( this.length > 0 ) {
+					var element = this[0];
+					return element.innerHTML;
+				} else {
+					return null;
+				}
+			} else {
+				for ( var i = 0; i < this.length; i++ ) {
+					this[i].innerHTML = html;
+				}
+			}
+			return this;
+		},
+		
+		prepend: function ( html ) {
+			
+			return this;
+		},
+		
+		prependTo: function ( html ) {
+			
+			return this;
+		},
+		
+		text: function ( html ) {
+			
+			return this;
+		},
+		
+		remove: function () {
+			for ( var i = 0; i < this.length; i++ ) {
+				this[i].parentNode.removeChild(this[i]);
+			}
+			return this;
+		},
+		
 		
 		/*
 		 * Search elements
