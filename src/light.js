@@ -331,6 +331,40 @@
 			return this;
 		},
 		
+		// DOM Insertion, Outside
+		
+		after: function ( html ) {
+			
+			return this;
+		},
+		
+		before: function ( html ) {
+			
+			return this;
+		},
+		
+		insertAfter: function ( html ) {
+			
+			return this;
+		},
+		
+		insertBefore: function ( html ) {
+			
+			return this;
+		},
+		
+		// DOM Removal
+		
+		detach: function ( html ) {
+			
+			return this;
+		},
+		
+		empty: function ( html ) {
+			
+			return this;
+		},
+		
 		remove: function () {
 			for ( var i = 0; i < this.length; i++ ) {
 				this[i].parentNode.removeChild(this[i]);
@@ -338,18 +372,102 @@
 			return this;
 		},
 		
+		unWrap: function ( html ) {
+			
+			return this;
+		},
+		
+		// DOM Replacement
+		
+		replaceAll: function ( html ) {
+			
+			return this;
+		},
+		
+		replaceWidth: function ( html ) {
+			
+			return this;
+		},
+		
 		
 		/*
-		 * Search elements
+		 * Traversing
 		 */
 		
-		parent: function () {
-			if ( this.length > 0 ) {
-				var element = this[0];
-			} else {
-				return false;
-			}
-			return $(element.parentNode);
+		// Filtering
+		
+		eq: function () {
+			
+			return this;
+		},
+		
+		filter: function () {
+			
+			return this;
+		},
+		
+		first: function () {
+			
+			return this;
+		},
+		
+		has: function () {
+			
+			return this;
+		},
+		
+		is: function () {
+			
+			return this;
+		},
+		
+		last: function () {
+			
+			return this;
+		},
+		
+		map: function () {
+			
+			return this;
+		},
+		
+		not: function () {
+			
+			return this;
+		},
+		
+		slice: function () {
+			
+			return this;
+		},
+		
+		// Miscellaneous Traversing
+		
+		add: function () {
+			
+			return this;
+		},
+		
+		addSelf: function () {
+			
+			return this;
+		},
+		
+		contents: function () {
+			
+			return this;
+		},
+		
+		end: function () {
+			
+			return this;
+		},
+		
+		// Tree Traversal
+		
+		children: function () {
+			
+			return this;
 		},
 		
 		closest: function ( parentSelector, element ) {
@@ -409,6 +527,35 @@
 			}
 		},
 		
+		nextAll: function () {
+			
+			return this;
+		},
+		
+		nextUntil: function () {
+			
+			return this;
+		},
+		
+		parent: function () {
+			if ( this.length > 0 ) {
+				var element = this[0];
+			} else {
+				return false;
+			}
+			return $(element.parentNode);
+		},
+		
+		parents: function () {
+			
+			return this;
+		},
+		
+		parentsUntil: function () {
+			
+			return this;
+		},
+		
 		prev: function () {
 			if ( this.length > 0 ) {
 				var element = this[0];
@@ -418,9 +565,27 @@
 			}
 		},
 		
+		prevAll: function () {
+			
+			return this;
+		},
+		
+		prevUntil: function () {
+			
+			return this;
+		},
+		
+		siblings: function () {
+			
+			return this;
+		},
+		
+		
 		/*
-		 * Event elements
+		 * Events
 		 */
+		
+		// Event Object
 		
 		addListener: function ( event, callback ){
 			for ( var i = 0; i < this.length; i++ ) {
@@ -439,31 +604,39 @@
 			}
 		},
 		
-		load:			function ( callback ){ this.addListener( "load", callback ); },
-		resize:			function ( callback ){ this.addListener( "resize", callback ); },
-		scroll:			function ( callback ){ this.addListener( "scroll", callback ); },
-		submit:			function ( callback ){ this.addListener( "submit", callback ); },
-		trigger:		function ( callback ){ this.addListener( "trigger", callback ); },
-		change:			function ( callback ){ this.addListener( "change", callback ); },
+		// Mouse Events
+		
 		click:			function ( callback ){ this.addListener( "click", callback ); },
-		contextMenu:	function ( callback ){ this.addListener( "contextmenu", callback ); },
-		hover:			function ( callback ){ this.addListener( "mouseover", callback ); },
 		dblClick:		function ( callback ){ this.addListener( "dblclick", callback ); },
+		focusIn:		function ( callback ){ this.addListener( "focusin", callback ); },
+		focusOut:		function ( callback ){ this.addListener( "focusout", callback ); },
+		hover:			function ( callback ){ this.addListener( "mouseover", callback ); },
 		mouseDown:		function ( callback ){ this.addListener( "mousedown", callback ); },
-		mouseUp:		function ( callback ){ this.addListener( "mouseup", callback ); },
 		mouseEnter:		function ( callback ){ this.addListener( "mouseenter", callback ); },
 		mouseLeave:		function ( callback ){ this.addListener( "mouseleave", callback ); },
 		mouseMove:		function ( callback ){ this.addListener( "mousemove", callback ); },
-		mouseOver:		function ( callback ){ this.addListener( "mouseover", callback ); },
 		mouseOut:		function ( callback ){ this.addListener( "mouseout", callback ); },
-		keyPress:		function ( callback ){ this.addListener( "keypress", callback ); },
-		keyDown:		function ( callback ){ this.addListener( "keydown", callback ); },
-		keyUp:			function ( callback ){ this.addListener( "keyup", callback ); },
-		focus:			function ( callback ){ this.addListener( "focus", callback ); },
-		focusIn:		function ( callback ){ this.addListener( "focusin", callback ); },
-		focusOut:		function ( callback ){ this.addListener( "focusout", callback ); },
+		mouseOver:		function ( callback ){ this.addListener( "mouseover", callback ); },
+		mouseUp:		function ( callback ){ this.addListener( "mouseup", callback ); },
+		toggle:			function ( callback ){ this.addListener( "toggle", callback ); },
+		contextMenu:	function ( callback ){ this.addListener( "contextmenu", callback ); },
 		
-		unBind: function ( event, callback ){
+		// Browser Events
+		
+		error:			function ( callback ){ this.addListener( "error", callback ); },
+		resize:			function ( callback ){ this.addListener( "resize", callback ); },
+		scroll:			function ( callback ){ this.addListener( "scroll", callback ); },
+		
+		// Document Loading
+		
+		ready:			function ( callback ){ this.addListener( "ready", callback ); },
+		load:			function ( callback ){ this.addListener( "load", callback ); },
+		unLoad:			function ( callback ){ this.addListener( "unload", callback ); },
+		
+		// Event Handler Attachment
+		
+		trigger:		function ( callback ){ this.addListener( "trigger", callback ); },
+		unBind: 		function ( event, callback ){
 			if ( event.indexOf(" ") > -1 ) {
 				var events = event.split(" ");
 				for ( var i = 0; i < events.length; i++ ) {
@@ -475,6 +648,21 @@
 				}
 			}
 		},
+		
+		// Form Events
+		
+		blur:			function ( callback ){ this.addListener( "blur", callback ); },
+		change:			function ( callback ){ this.addListener( "change", callback ); },
+		focus:			function ( callback ){ this.addListener( "focus", callback ); },
+		select:			function ( callback ){ this.addListener( "select", callback ); },
+		submit:			function ( callback ){ this.addListener( "submit", callback ); },
+		
+		// Keyboard Events
+		
+		keyPress:		function ( callback ){ this.addListener( "keypress", callback ); },
+		keyDown:		function ( callback ){ this.addListener( "keydown", callback ); },
+		keyUp:			function ( callback ){ this.addListener( "keyup", callback ); },
+		
 		
 		/*
 		 * Extend
