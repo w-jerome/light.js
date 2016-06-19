@@ -66,7 +66,12 @@
 		},
 		
 		removeAttr: function ( attr ) {
-			
+			if ( typeof attr == 'undefined' ) {
+				return false;
+			}
+			for ( var i = 0; i < this.length; i++ ) {
+				this[i].removeAttribute(attr);
+			}
 			return this;
 		},
 		
@@ -76,7 +81,7 @@
 		},
 		
 		val: function ( val ) {
-			if ( typeof val == "undefined" ) {
+			if ( typeof val == 'undefined' ) {
 				if ( this.length > 0 ) {
 					return this[0].value;
 				} else {
@@ -176,33 +181,51 @@
 		// Dimensions
 		
 		height: function () {
-			
-			return this;
+			if ( typeof this[0] != 'undefined' ) {
+				return this[0].height;
+			} else {
+				return false;
+			}
 		},
 		
 		width: function () {
-			
-			return this;
+			if ( typeof this[0] != 'undefined' ) {
+				return this[0].width;
+			} else {
+				return false;
+			}
 		},
 		
 		innerHeight: function () {
-			
-			return this;
+			if ( typeof this[0] != 'undefined' ) {
+				return this[0].innerHeight;
+			} else {
+				return false;
+			}
 		},
 		
 		innerWidth: function () {
-			
-			return this;
+			if ( typeof this[0] != 'undefined' ) {
+				return this[0].innerWidth;
+			} else {
+				return false;
+			}
 		},
 		
 		outerHeight: function () {
-			
-			return this;
+			if ( typeof this[0] != 'undefined' ) {
+				return this[0].offsetHeight;
+			} else {
+				return false;
+			}
 		},
 		
 		outerWidth: function () {
-			
-			return this;
+			if ( typeof this[0] != 'undefined' ) {
+				return this[0].offsetWidth;
+			} else {
+				return false;
+			}
 		},
 		
 		// Offset
