@@ -1,0 +1,6 @@
+# Ignore les fichiers OS X inutiles
+.DS_Store
+
+# Ignore le debug npm et les modules
+npm-debug.log
+node_modules/*
