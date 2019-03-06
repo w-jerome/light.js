@@ -1,87 +1,91 @@
 # light.js
 
-:seedling: light.js is a very little framework **(5 ko)** with basic jquery functions
+:seedling: light.js is a very little framework **(5 ko, no gziped)** with basic jquery like functions
 
 ## Installation
 
-```
+```html
 <script src="https://raw.githubusercontent.com/w-jerome/light.js/master/dist/light.min.js"></script>
 ```
 
-## Functions
+## Use
 
 ### Class manipulation
 
-```addClass
-$('.element').addClass('my-classe')
-$('.element').removeClass('my-classe')
-$('.element').hasClass('my-classe')
-$('.element').toggleClass('my-classe')
+```javascript
+$('.el').addClass('my-classe')
+$('.el').removeClass('my-classe')
+$('.el').hasClass('my-classe')
+$('.el').toggleClass('my-classe')
 ```
 
 ### Html manipulation
 
-```
-$('.element').attr('href')
-	$('.element').attr('data-type')
-	$('.element').attr('data-type', 'apple')
+```javascript
+$('.el').attr('href')
+	$('.el').attr('data-type')
+	$('.el').attr('data-type', 'apple')
 
-$('.element').html()
-$('.element').val()
-	$('.element').val('myValue')
+$('.el').html()
+
+$('.el').val()
+	$('.el').val('myValue')
 	
-$('.element').append('<div>my html</div>')
-$('.element').remove()
-$('.element').css('width')
-	$('.element')css('width', '50px')
-	$('.element')css({'width': '50px', 'width': '50px'})
+$('.el').append('<div>my html</div>')
+
+$('.el').remove()
+
+$('.el').css('width')
+	$('.el')css('width', '50px')
+	$('.el')css({'width': '50px', 'width': '50px'})
 ```
 
 ### DOM manipulation
 
-```
-$('.element').parent()
-$('.element').closest('.highter-parent')
-$('.element').find('.lower-child')
-$('.element').next()
-$('.element').prev()
+```javascript
+$('.el').parent()
+$('.el').closest('.highter-parent')
+$('.el').find('.lower-child')
+$('.el').next()
+$('.el').prev()
 ```
 
 ### Events
 
-```
-$('.element').on('click mouseleave', function () {})
+```javascript
+$('.el').on('click', function () {})
+	$('.el').on('mouseenter mouseleave', function () {})
 
-$('.element').load(function () {})
-$('.element').resize(function () {})
-$('.element').scroll(function () {})
+$('.el').load(function () {})
+$('.el').resize(function () {})
+$('.el').scroll(function () {})
 
-$('.element').change(function () {})
-$('.element').submit(function () {})
-$('.element').trigger(function () {})
+$('.el').change(function () {})
+$('.el').submit(function () {})
+$('.el').trigger(function () {})
 
-$('.element').click(function () {})
-$('.element').contextMen(function () {})
-$('.element').dblClick(function () {})
-$('.element').hover(function () {})
+$('.el').click(function () {})
+$('.el').contextMen(function () {})
+$('.el').dblClick(function () {})
+$('.el').hover(function () {})
 
-$('.element').mouseUp(function () {})
-$('.element').mouseDown(function () {})
-$('.element').mouseEnter(function () {})
-$('.element').mouseLeave(function () {})
-$('.element').mouseMove(function () {})
-$('.element').mouseOver(function () {})
-$('.element').mouseOut(function () {})
+$('.el').mouseUp(function () {})
+$('.el').mouseDown(function () {})
+$('.el').mouseEnter(function () {})
+$('.el').mouseLeave(function () {})
+$('.el').mouseMove(function () {})
+$('.el').mouseOver(function () {})
+$('.el').mouseOut(function () {})
 
-$('.element').keyPress(function () {})
-$('.element').keyDown(function () {})
-$('.element').keyUp(function () {})
+$('.el').keyPress(function () {})
+$('.el').keyDown(function () {})
+$('.el').keyUp(function () {})
 
-$('.element').focus(function () {})
-$('.element').focusIn(function () {})
-$('.element').focusOut(function () {})
+$('.el').focus(function () {})
+$('.el').focusIn(function () {})
+$('.el').focusOut(function () {})
 
-$('.element').unBind('click focus', function () {})
+$('.el').unBind('click focus', function () {})
 ```
 
 
@@ -89,7 +93,7 @@ $('.element').unBind('click focus', function () {})
 
 Plugin script
 
-```
+```javascript
 // plugins/light-opacity.js
 
 (function () {
@@ -114,7 +118,7 @@ Plugin script
 
 Use
 
-```
+```javascript
 <script>
 	$('button').opacity(0);
 </script>
