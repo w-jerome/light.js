@@ -119,7 +119,5 @@ Plugin script
 Use
 
 ```javascript
-<script>
-	$('button').opacity(0);
-</script>
+$('button').opacity(0);
 ```
