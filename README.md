@@ -5,12 +5,12 @@
 ## Installation
 
 ```html
-<script src="https://raw.githubusercontent.com/w-jerome/light.js/master/dist/light.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/w-jerome/light.js/dist/light.min.js"></script>
 ```
 
 ## Use
 
-### Class manipulation
+### Classes manipulation
 
 ```javascript
 $('.el').addClass('my-classe')
@@ -23,21 +23,23 @@ $('.el').toggleClass('my-classe')
 
 ```javascript
 $('.el').attr('href')
-	$('.el').attr('data-type')
-	$('.el').attr('data-type', 'apple')
+$('.el').attr('data-type')
+$('.el').attr('data-type', 'apple')
 
 $('.el').html()
 
 $('.el').val()
-	$('.el').val('myValue')
-	
+$('.el').val('myValue')
+  
 $('.el').append('<div>my html</div>')
 
 $('.el').remove()
 
 $('.el').css('width')
-	$('.el')css('width', '50px')
-	$('.el')css({'width': '50px', 'width': '50px'})
+$('.el').css('width', '50px')
+$('.el').css({
+  width: '50px',
+})
 ```
 
 ### DOM manipulation
@@ -53,66 +55,66 @@ $('.el').prev()
 ### Events
 
 ```javascript
-$('.el').on('click', function () {})
-	$('.el').on('mouseenter mouseleave', function () {})
+$('.el').on('click', () => {})
+$('.el').on('mouseenter mouseleave', () => {}) // multiple events
 
-$('.el').load(function () {})
-$('.el').resize(function () {})
-$('.el').scroll(function () {})
+$('.el').load(() => {})
+$('.el').resize(() => {})
+$('.el').scroll(() => {})
 
-$('.el').change(function () {})
-$('.el').submit(function () {})
-$('.el').trigger(function () {})
+$('.el').change(() => {})
+$('.el').submit(() => {})
+$('.el').trigger(() => {})
 
-$('.el').click(function () {})
-$('.el').contextMen(function () {})
-$('.el').dblClick(function () {})
-$('.el').hover(function () {})
+$('.el').click(() => {})
+$('.el').contextMen(() => {})
+$('.el').dblClick(() => {})
+$('.el').hover(() => {})
 
-$('.el').mouseUp(function () {})
-$('.el').mouseDown(function () {})
-$('.el').mouseEnter(function () {})
-$('.el').mouseLeave(function () {})
-$('.el').mouseMove(function () {})
-$('.el').mouseOver(function () {})
-$('.el').mouseOut(function () {})
+$('.el').mouseUp(() => {})
+$('.el').mouseDown(() => {})
+$('.el').mouseEnter(() => {})
+$('.el').mouseLeave(() => {})
+$('.el').mouseMove(() => {})
+$('.el').mouseOver(() => {})
+$('.el').mouseOut(() => {})
 
-$('.el').keyPress(function () {})
-$('.el').keyDown(function () {})
-$('.el').keyUp(function () {})
+$('.el').keyPress(() => {})
+$('.el').keyDown(() => {})
+$('.el').keyUp(() => {})
 
-$('.el').focus(function () {})
-$('.el').focusIn(function () {})
-$('.el').focusOut(function () {})
+$('.el').focus(() => {})
+$('.el').focusIn(() => {})
+$('.el').focusOut(() => {})
 
-$('.el').unBind('click focus', function () {})
+$('.el').unBind('click focus', () => {})
 ```
 
+## How to create a plugin
 
-## Create plugin
-
-Plugin script
+### Plugin script
 
 ```javascript
 // plugins/light-opacity.js
 
 (function () {
-	$.fn.extend({
-		
-		/*
-		 * Opacity
-		 */
-		opacity: function ( params ){
-			
-			if ( typeof params != 'string' && typeof params != 'number' ) {
-				return false;
-			}
-			for ( var i = 0; i < this.length; i++ ) {
-				var element = this[i];
-				element.style.opacity = params;
-			}
-		},
-	});
+  $.fn.extend({
+    /*
+     * Opacity
+     */
+    opacity: function(opacity) {
+      if (typeof opacity !== 'number') {
+        return false;
+      }
+
+      opacity = opacity > 1 ? 1 : opacity < 0 ? 0 : opacity;
+
+      for (var i = 0; i < this.length; i++) {
+        var element = this[i];
+        element.style.opacity = opacity;
+      }
+    },
+  });
 })();
 ```
 
